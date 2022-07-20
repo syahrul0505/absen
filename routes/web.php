@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\DepartementController;
 use App\Http\Controllers\backend\HistoryLogController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\FilterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,6 +57,9 @@ use Illuminate\Support\Facades\Route;
                 ]);;
             });
             
+            // Filter
+            Route::resource('filter', FilterController::class);
+
             // History Log
             Route::resource('history-log', HistoryLogController::class)->except([
                 'show', 'create', 'store', 'edit', 'update'

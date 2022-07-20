@@ -20,6 +20,15 @@
                 </li>
                 @endif
 
+                @if(auth()->user()->can('dashboard'))
+                <li>
+                    <a href="{{ route('backend.filter.index') }}" class="waves-effect">
+                        <i class="fas fa-home"></i>
+                        <span key="t-dashboards">Filter</span>
+                    </a>
+                </li>
+                @endif
+
                 @if(auth()->user()->can('master-data'))
                 <li>
                     <a href="{{ route('backend.master-data.index') }}">
