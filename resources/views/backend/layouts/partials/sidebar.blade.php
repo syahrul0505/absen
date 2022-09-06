@@ -13,36 +13,18 @@
 
                 @if(auth()->user()->can('dashboard'))
                 <li>
-                    <a href="{{ route('backend.dashboard.index') }}" class="waves-effect">
-                        <i class="fas fa-home"></i>
-                        <span key="t-dashboards">Dashboard</span>
+                    <a href="{{ route('backend.absen.index') }}" class="waves-effect">
+                        <i class="fas fa-address-card"></i>
+                        <span key="t-dashboards">Absen</span>
                     </a>
                 </li>
                 @endif
 
                 @if(auth()->user()->can('dashboard'))
                 <li>
-                    <a href="{{ route('backend.filter.index') }}" class="waves-effect">
-                        <i class="fas fa-home"></i>
-                        <span key="t-dashboards">Filter</span>
-                    </a>
-                </li>
-                @endif
-
-                @if(auth()->user()->can('master-data'))
-                <li>
-                    <a href="{{ route('backend.master-data.index') }}">
-                        <i class="mdi mdi-folder-outline"></i>
-                        <span data-key="t-dashboard">Master Data</span>
-                    </a>
-                </li>
-                @endif
-
-                @if(auth()->user()->can('history-log-list'))
-                <li>
-                    <a href="{{ route('backend.history-log.index') }}">
-                        <i class="mdi mdi-history"></i>
-                        <span data-key="t-dashboard">History</span>
+                    <a href="{{ route('backend.report.index') }}" class="waves-effect">
+                        <i class="bx bx-receipt"></i>
+                        <span key="t-dashboards">Report</span>
                     </a>
                 </li>
                 @endif

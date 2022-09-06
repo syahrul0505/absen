@@ -5,6 +5,8 @@ use App\Http\Controllers\backend\DepartementController;
 use App\Http\Controllers\backend\HistoryLogController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\FilterController;
+use App\Http\Controllers\backend\AbsenController;
+use App\Http\Controllers\backend\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +59,13 @@ use Illuminate\Support\Facades\Route;
                 ]);;
             });
             
+            // absen
+            Route::resource('absen', AbsenController::class);
+
+            // Report
+            Route::get('report', [ReportController::class, 'index'])->name('report.index');
+            Route::post('/report-absen-export', [ReportController::class, 'ReportExport'])->name('report-absen-export');
+
             // Filter
             Route::resource('filter', FilterController::class);
 

@@ -13,6 +13,17 @@
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colvis.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.flash.min.js') }}"></script>
+{{-- <script src="{{ asset('plugins/datatables-buttons/js/pdfmake.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/vfs_fonts.js') }}"></script> --}}
+{{-- <script src="{{ asset('plugins/datatables-buttons/js/jszip.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/pdfmake.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/vfs_fonts.js') }}"></script> --}}
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- Custom File input -->
@@ -139,7 +150,7 @@
                     action: function () {
                         $.ajax({
                             type: 'POST',
-                            url: '/yakesma/admin/logout',
+                            url: '/admin/logout',
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
@@ -163,5 +174,5 @@
         });
     }
 </script>
-
+@stack('scripts')
 @yield('script')

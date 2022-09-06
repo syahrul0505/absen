@@ -1,150 +1,110 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
 
-    <head>
-    
-        @include('backend.layouts.partials.head')
+<head>
+        
+        <meta charset="utf-8" />
+        <title>Sign In | WiqiCo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Yakesma" name="description" />
+        <meta content="Yakesma" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ asset('backend/images/logo-yakesma/yakesma-laznas-sm.png') }}">
+
+        <!-- Layout config Js -->
+        <script src="{{ asset('login/js/layout.js') }}"></script>
+        <!-- Bootstrap Css -->
+        <link href="{{ asset('login/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{{ asset('login/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{{ asset('login/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- custom Css-->
+        <link href="{{ asset('login/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <style>
-            .bg-right{
-                background-image: url('/img/gedung-telkom.jpg');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                background-color: #cccccc;
-            }
-            .bg-dark{
-                position:absolute;
-                height:100%;
-                width:100%;
-                right:0;
-                bottom:0;
-                left:0;
-                top:0;
-                opacity:.4;
-                background-color:rgb(14, 1, 1)
-            }
-            @font-face {
-                font-family: 'Tangerine';
-                font-style: normal;
-                font-weight: normal;
-                src: local('Tangerine'), url('/font/Cocon-Regular-Font.otf') format('truetype');
-            }
-            .font-telkom{
-                font-family: 'Tangerine' !important;
-            }
-
-            .img-login{
-                height: 550px; 
-                width: 1000px;
+            .container{
+                height: 100% !important;
             }
         </style>
 
+
     </head>
 
-    <body data-topbar="dark">
+    <body>
 
-    <!-- <body data-layout="horizontal"> -->
-        <div class="auth-page">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-xxl-3 col-lg-4 col-md-5">
-                        <div class="auth-full-page-content d-flex p-sm-5 p-4">
-                            <div class="w-100">
-                                <div class="d-flex flex-column h-100">
-                                    <div class="my-auto">
-                                        <div class="mb-4 mb-md-5 text-center">
-                                            <a href="index.html" class="d-block auth-logo">
-                                                {{-- <img src="{{ asset('img/types/hero-bg.jpg') }}" alt="" height="100"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="auth-content">
-                                            <div class="text-center">
-                                                <h5 class="mb-0 font-telkom">Welcome</h5>
-                                                <p class="text-muted mt-2">Sign in to dashboard profille.</p>
-                                            </div>
-                                            <form class="mt-4 pt-2" method="POST" action="{{ route('login') }}">
-                                                @csrf
-                                                <div class="form-floating form-floating-custom mb-4">
-                                                    <input id="username" type="text" class="form-control  @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus placeholder="Enter Username Or Email">
-                                                    <label for="input-username">Username or Email</label>
-                                                    <div class="form-floating-icon">
-                                                    <i data-feather="users"></i>
-                                                    </div>
-                                                </div>
+        <div class="auth-page-wrapper">
+            <!-- auth page bg -->
+            <div class="bg-overlay"></div>
+            <div class="auth-one-bg-position auth-one-bg"  id="auth-particles"></div>
 
-                                                <div class="form-floating form-floating-custom mb-4 auth-pass-inputgroup">
-                                                    <input id="password-input" type="password" class="form-control pe-5 @error('password') is-invalid @enderror" name="password" required placeholder="Enter Password">
-                                                    
-                                                    <button type="button" class="btn btn-link position-absolute h-100 end-0 top-0" id="password-addon">
-                                                        <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
-                                                    </button>
-                                                    <label for="input-password">Password</label>
-                                                    <div class="form-floating-icon">
-                                                        <i data-feather="lock"></i>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-4">
-                                                    <div class="col">
-                                                        <div class="form-check font-size-15">
-                                                            <input type="checkbox" id="remember" {{  old('remember') ? 'checked' : ''  }}class="form-check-input">
-                                                            <label class="form-check-label font-size-13" for="remember-check">
-                                                                Remember me
-                                                            </label>
-                                                        </div>  
-                                                    </div>
-                                                    
-                                                </div>
-                                                <div class="mb-3">
-                                                    <button class="btn btn-primary w-100 waves-effect waves-light font-telkom" type="submit">Log In</button>
-                                                </div>
-                                            </form>
-                                        </div>
+            <!-- auth page content -->
+            <div class="auth-page-content">
+                <div class="container">
+                    <div class="row d-flex justify-content-center align-content-center" style="height:100%;">
+                        <div class="col-md-8 col-lg-6 col-xl-5">
+                            <div class="card" style="border-radius: 15px;">
+                            
+                                <div class="card-body p-4"> 
+                                    <div class="text-center mt-2">
+                                        <img src="{{ asset('img/sst.png') }}" alt="" height="250" class="mt-2">
+                                        <h5 class="text-primary mt-4">Welcome Back !</h5>
+                                        <p class="text-muted">Sign in to continue to web admin.</p>
                                     </div>
-                                    {{-- <div class="text-center">
-                                            <a href="index.html" class="d-block auth-logo mb-2">
-                                            <img src="{{ asset('img/CMM.png') }}" alt="" height="40">
-                                        </a>
-                                        <script>document.write(new Date().getFullYear())</script> © PT. Cahaya Mutiara Mandiri.
-                                    </div> --}}
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end auth full page content -->
-                    </div>
-                    <!-- end col -->
-                    <div class="col-xxl-9 col-lg-8 col-md-7 bg-right">
-                        <div class="auth-bg pt-md-5 p-4 d-flex">
-                            <div class="">
-                                    <img src="{{ asset('img/types/hero-bg.jpg') }}" alt="" class="img-login" >
-                            </div>
-                            <div class="col-12 d-block my-auto text-center">
-                                {{-- <h1 class="m-0 font-telkom" style="font-size:60px; color:rgba(212, 25, 25, 0.952); font-weight: 900;">TELKOMSEL</h1>
-                                <h2 class="m-0 p-0 font-telkom" style="font-size:40px; color:rgba(255, 255, 255, 0.952);">SMART MONITORING</h2> --}}
-                            </div>
-                            {{-- <ul class="bg-bubbles">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul> --}}
-                            <!-- end bubble effect -->
-                        </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container fluid -->
-        </div>
+                                    <div class="p-2 mt-4">
+                                        <form method="POST" action="{{ route('login') }}">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" required autofocus placeholder="Enter Username Or Email">
+                                            </div>
+                    
+                                            <div class="mb-3">
+                                                <label class="form-label" for="password-input">Password</label>
+                                                <div class="position-relative auth-pass-inputgroup mb-3">
+                                                    <input type="password" class="form-control pe-5 @error('password') is-invalid @enderror" required placeholder="Enter Password" name="password" id="password-input">
+                                                    <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                </div>
+                                            </div>
 
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
+                                                <label class="form-check-label" for="auth-remember-check">Remember me</label>
+                                            </div>
+                                            
+                                            <div class="mt-4">
+                                                <button class="btn btn-success w-100" type="submit">Sign In</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                            <!-- end card -->
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end auth page content -->
+        </div>
+        <!-- end auth-page-wrapper -->
+
+        <!-- JAVASCRIPT -->
+        <script src="{{ asset('login/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('login/libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ asset('login/libs/node-waves/waves.min.js') }}"></script>
+        <script src="{{ asset('login/libs/feather-icons/feather.min.js') }}"></script>
+        <script src="{{ asset('login/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
+        <script src="{{ asset('login/js/plugins.js') }}"></script>
+
+        <!-- particles js -->
+        <script src="{{ asset('login/libs/particles.js/particles.js') }}"></script>
+        <!-- particles app js -->
+        <script src="{{ asset('login/js/pages/particles.app.js') }}"></script>
+        <!-- password-addon init -->
+        <script src="{{ asset('login/js/pages/password-addon.init.js') }}"></script>
     </body>
 
-</html>
 
+</html>
