@@ -23,10 +23,10 @@ use Illuminate\Support\Facades\Route;
 // =================================================================================================================================
 // ======================================================BACKEND ROUTE==============================================================
 // =================================================================================================================================
-    // Route::get('yakesma/admin/login', function () {
-    //     $data['page_title'] = "Login";
-    //     return view('backend.auth.login', $data);
-    // })->name('user.login');
+    Route::get('/', function () {
+        $data['page_title'] = "Login";
+        return view('backend.auth.login', $data);
+    })->name('user.login');
 
     // Route::get('/', function () {
     //     return view('frontend.welcome');
@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Route;
         Route::prefix('admin/')->name('backend.')->group(function ()  {
  
             // Dashboard
-            Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');
+            // Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');
 
             // Master Data Prefix
             Route::prefix('master-data')->group(function () {
