@@ -74,16 +74,16 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $absens->name}}</td>
                                     <td>{{ $absens->date}}</td>
-                                    <td><img src="{{ asset('storage/'. $absens->ttd .'.jpg') }}" alt="" width="30%"></td>
+                                    <td><img src="{{ asset('storage/'. $absens->ttd .'.jpg') }}" alt="" width="150%"></td>
                                     <td>{{ $absens->description }}</td>
                                     @if(auth()->user()->can('departement-delete') || auth()->user()->can('departement-edit'))
                                     <td>
                                         <div class="btn-group">
                                             @can('departement-edit')
                                             <a href="{{ route('backend.absen.edit', $absens->id) }}"
-                                                class="btn btn-warning text-white">
+                                                class="btn btn-primary text-white">
                                                 <i class="far fa-edit"></i>
-                                                Edit
+                                                Signature
                                             </a>
                                             @endcan
 

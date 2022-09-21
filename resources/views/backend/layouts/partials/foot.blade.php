@@ -9,21 +9,37 @@
 <!-- Jquery Confirm -->
 <script src="{{ asset('plugins/jquery-confirm/js/jquery-confirm.js') }}"></script>
 <!-- DataTables  & Plugins -->
-<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+{{-- <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/buttons.flash.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables-buttons/js/buttons.colvis.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables-buttons/js/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('plugins/datatables-buttons/js/buttons.flash.min.js') }}"></script> --}}
 {{-- <script src="{{ asset('plugins/datatables-buttons/js/pdfmake.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/vfs_fonts.js') }}"></script> --}}
 {{-- <script src="{{ asset('plugins/datatables-buttons/js/jszip.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/pdfmake.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/vfs_fonts.js') }}"></script> --}}
-<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+{{-- <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script> --}}
+
+{{-- Datatable --}}
+<!-- Required datatable js -->
+<script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<!-- Buttons examples -->
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/libs/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
+<script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+{{-- Datatable --}}
+
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- Custom File input -->
@@ -150,7 +166,7 @@
                     action: function () {
                         $.ajax({
                             type: 'POST',
-                            url: '/admin/logout',
+                            url: "{{ route('logout') }}",
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },

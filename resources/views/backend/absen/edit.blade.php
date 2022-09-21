@@ -1,7 +1,13 @@
 @extends('backend.layouts.app')
 
 @section('style')
-
+<style>
+  #sig-canvas {
+border: 2px dotted #CCCCCC;
+border-radius: 15px;
+cursor: crosshair;
+}
+</style>
 @endsection
 
 @section('breadcumb')
@@ -63,8 +69,8 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="description">Signatur</label><br>
-                        <canvas id="sig-canvas" width="620" height="160">
+                        <label for="description">Signature</label><br>
+                        <canvas id="sig-canvas" width="550" height="250">
                             Get a better browser, bro.
                         </canvas>
                         <br>
@@ -77,10 +83,15 @@
                             </span>
                             @enderror
                             <input type="hidden" name="signature" id="signature_value">
-                        </div>
+                    </div>
                     <span class="btn btn-primary" id="sig-submitBtn">Submit Signature</span>
 				            <span class="btn btn-default" id="sig-clearBtn">Clear Signature</span>
                     {{-- <img id="sig-image" src="" alt="Your signature will go here!"/> --}}
+                    
+                    <div class="form-group mb-3">
+                      <label for="" class="form-label">Current Signature</label>
+                      <br>
+                      <img src="{{ asset('storage/'. $absen->ttd .'.jpg') }}" alt="" class="img-fluid">
                     </div>
 
                     <div class="form-group mb-3">
@@ -92,8 +103,9 @@
                               <strong>{{ $message }}</strong>
                           </span>
                       @enderror
-                  </div>
+                    </div>
 
+                  </div>
                 </div>
                 <!-- /.card-body -->
 
@@ -136,20 +148,20 @@
   canvas.addEventListener("mousedown", function(e) {
     drawing = true;
     lastPos = getMousePos(canvas, e);
-  }, false);
+  }, { passive: false });
 
   canvas.addEventListener("mouseup", function(e) {
     drawing = false;
-  }, false);
+  }, { passive: false });
 
   canvas.addEventListener("mousemove", function(e) {
     mousePos = getMousePos(canvas, e);
-  }, false);
+  }, { passive: false });
 
   // Add touch event support for mobile
   canvas.addEventListener("touchstart", function(e) {
 
-  }, false);
+  }, { passive: false });
 
   canvas.addEventListener("touchmove", function(e) {
     var touch = e.touches[0];
@@ -158,7 +170,7 @@
       clientY: touch.clientY
     });
     canvas.dispatchEvent(me);
-  }, false);
+  }, { passive: false });
 
   canvas.addEventListener("touchstart", function(e) {
     mousePos = getTouchPos(canvas, e);
@@ -168,12 +180,12 @@
       clientY: touch.clientY
     });
     canvas.dispatchEvent(me);
-  }, false);
+  }, { passive: false });
 
   canvas.addEventListener("touchend", function(e) {
     var me = new MouseEvent("mouseup", {});
     canvas.dispatchEvent(me);
-  }, false);
+  }, { passive: false });
 
   function getMousePos(canvasDom, mouseEvent) {
     var rect = canvasDom.getBoundingClientRect();
@@ -205,17 +217,17 @@
     if (e.target == canvas) {
       e.preventDefault();
     }
-  }, false);
+  }, { passive: false });
   document.body.addEventListener("touchend", function(e) {
     if (e.target == canvas) {
       e.preventDefault();
     }
-  }, false);
+  }, { passive: false });
   document.body.addEventListener("touchmove", function(e) {
     if (e.target == canvas) {
       e.preventDefault();
     }
-  }, false);
+  }, { passive: false });
 
   (function drawLoop() {
     requestAnimFrame(drawLoop);

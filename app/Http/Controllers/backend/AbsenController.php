@@ -36,20 +36,20 @@ class AbsenController extends Controller
             'date' => 'required',
            
         ]);
-        $data_uri = $request->signature;
-        $encoded_image = explode(",", $data_uri)[1];
-        $decoded_image = base64_decode($encoded_image);
+        // $data_uri = $request->signature;
+        // $encoded_image = explode(",", $data_uri)[1];
+        // $decoded_image = base64_decode($encoded_image);
 
-        $signature = strtolower($request->name);
-        $signature = Str::random(20);
+        // $signature = strtolower($request->name);
+        // $signature = Str::random(20);
         $absen = new Absen();
         $absen->name = $request->name;
         $absen->date = $request->date;
         $absen->description = $request->description;
-        $absen->ttd = $signature;
+        // $absen->ttd = $signature;
         
         $absen->save();
-        Storage::put('public/'.$signature.'.jpg', $decoded_image);
+        // Storage::put('public/'.$signature.'.jpg', $decoded_image);
 
         return redirect()->route('backend.absen.index')->with('success','Absen created successfully');
         return redirect()->back()->with('success','Absen created successfully');
@@ -74,19 +74,23 @@ class AbsenController extends Controller
 
 
         $absen = Absen::findOrFail($id);
-        $data_uri = $request->signature;
-        $encoded_image = explode(",", $data_uri)[1];
-        $decoded_image = base64_decode($encoded_image);
+        if ($request->signature) {
+            # code...
+            $data_uri = $request->signature;
+            $encoded_image = explode(",", $data_uri)[1];
+            $decoded_image = base64_decode($encoded_image);
+            
+            $signature = strtolower($request->name);
+            $signature = Str::random(20);
+            $absen->ttd = $signature;
+            Storage::put('public/'.$signature.'.jpg', $decoded_image);
+        }
 
-        $signature = strtolower($request->name);
-        $signature = Str::random(20);
         $absen->name = $request->name;
         $absen->date = $request->date;
         $absen->description = $request->description;
-        $absen->ttd = $signature;
         
         $absen->save();
-        Storage::put('public/'.$signature.'.jpg', $decoded_image);
 
         return redirect()->route('backend.absen.index')->with(['success' => 'Absen edited successfully!']);
     }
