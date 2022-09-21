@@ -52,7 +52,6 @@ class AbsenController extends Controller
         Storage::put('public/'.$signature.'.jpg', $decoded_image);
 
         return redirect()->route('backend.absen.index')->with('success','Absen created successfully');
-        return redirect()->back()->with('success','Absen created successfully');
     }
 
     public function edit($id)

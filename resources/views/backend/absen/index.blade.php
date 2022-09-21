@@ -88,7 +88,7 @@
                                             @endcan
 
                                             @can('departement-delete')
-                                            <a href="#" class="btn btn-danger f-12" onclick="modalDelete('Absen', '{{ $absens->name }}', '/absen/public/admin/absen/' + {{ $absens->id }}, '/absen/public/admin/absen/')">
+                                            <a href="#" class="btn btn-danger f-12" onclick="modalDelete('Absen', '{{ $absens->name }}', '/admin/absen/' + {{ $absens->id }}, '/admin/absen/')">
                                                 <i class="far fa-trash-alt"></i>
                                                 Delete
                                             </a>
