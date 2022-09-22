@@ -47,7 +47,7 @@ class UserController extends Controller
             'name'   => 'required|string|min:3',
             'username'   => 'required|unique:users,username|alpha_dash',
             'email'   => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
+            'password' => 'required|min:2',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'role' => 'required',
         ]);

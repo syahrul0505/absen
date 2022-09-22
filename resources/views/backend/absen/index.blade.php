@@ -60,6 +60,7 @@
                                     <th>No</th>
                                     <th>Name</th>
                                     <th>Date</th>
+                                    <th>Site</th>
                                     <th>Tanda Tangan</th>
                                     <th>Description</th>
                                     @if(auth()->user()->can('departement-delete') || auth()->user()->can('departement-edit'))
@@ -74,7 +75,8 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $absens->name}}</td>
                                     <td>{{ $absens->date}}</td>
-                                    <td><img src="{{ asset('storage/'. $absens->ttd .'.jpg') }}" alt="" width="150%"></td>
+                                    <td>{{ $absens->site ?? ''}}</td>
+                                    <td><img src="{{ asset('storage/'. $absens->ttd .'.jpg') ?? ''}}" alt="" width="150%"></td>
                                     <td>{{ $absens->description }}</td>
                                     @if(auth()->user()->can('departement-delete') || auth()->user()->can('departement-edit'))
                                     <td>

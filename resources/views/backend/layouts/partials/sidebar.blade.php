@@ -29,6 +29,15 @@
                 </li>
                 @endif
 
+                @if(auth()->user()->can('dashboard'))
+                <li>
+                    <a href="{{ route('backend.master-data.index') }}" class="waves-effect">
+                        <i class="bx bx-receipt"></i>
+                        <span key="t-dashboards">Master Data</span>
+                    </a>
+                </li>
+                @endif
+
                 <li>
                     <a href="#" onclick="logout()" class="nav-link">
                         <i class="mdi mdi-logout"></i>

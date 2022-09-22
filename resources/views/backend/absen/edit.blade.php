@@ -58,6 +58,16 @@ cursor: crosshair;
                     </div>
 
                     <div class="form-group mb-3">
+                      <label class="col-form-label">Site</label>
+                      <select class="form-select" id="type" name="site">
+                          <option value="">Select Site</option>
+                          <option value="Sunter" {{ $absen->site == 'Sunter' ? 'selected' : '' }}>Sunter</option>
+                          <option value="Jayakarta" {{ $absen->site == 'Jayakarta' ? 'selected' : '' }}>Jayakarta</option>
+                          <option value="Cikupa" {{ $absen->site == 'Cikupa' ? 'selected' : '' }}>Cikupa</option>
+                      </select>
+                  </div>
+
+                    <div class="form-group mb-3">
                         <label for="date">date</label>
                         <input class="form-control @error('date') is-invalid @enderror" id="date" type="date" name="date" placeholder="Tanggal WO " required value="{{ old('date') ?? $absen->date }}">
 

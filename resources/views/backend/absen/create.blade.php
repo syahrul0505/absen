@@ -66,8 +66,8 @@
 
                     <div class="form-group mb-3">
                       <label for="">Site </label> <br>
-                      <select class="form-select" @error('name') is-invalid @enderror name="name" >
-                          <option disabled selected>Choose Person</option>
+                      <select class="form-select" @error('site') is-invalid @enderror name="site" >
+                          <option disabled selected>Choose Site</option>
                           <option value="Sunter">Sunter</option>
                           <option value="Jayakarta">Jayakarta</option>
                           <option value="Cikupa">Cikupa</option>

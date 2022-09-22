@@ -45,6 +45,7 @@ class AbsenController extends Controller
         $absen = new Absen();
         $absen->name = $request->name;
         $absen->date = $request->date;
+        $absen->site = $request->site;
         $absen->description = $request->description;
         // $absen->ttd = $signature;
         
@@ -87,6 +88,7 @@ class AbsenController extends Controller
 
         $absen->name = $request->name;
         $absen->date = $request->date;
+        $absen->site = $request->site;
         $absen->description = $request->description;
         
         $absen->save();
