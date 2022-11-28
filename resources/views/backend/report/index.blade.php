@@ -37,14 +37,6 @@
                             </span>
                         </div>
 
-                        @can('departement-create')
-                        <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end">
-                            <a href="{{ route('backend.absen.create') }}" class="btn btn-md btn-info">
-                                <i class="fa fa-plus"></i> 
-                                Add New
-                            </a>
-                        </div>
-                        @endcan
                     </div>
 
                     <div class="row">
@@ -56,19 +48,35 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
+                        <form action="" method="get">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group mb-3">
+                                        <label for="date">Date</label>
+                                        <input class="form-control @error('date') is-invalid @enderror" type="month" name="start_date" value="{{ date('Y-m', strtotime(Request::get('start_date') ?? date('Y-m'))) }}">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <label class="">&nbsp</label>
+                                        <div class="d-flex flex-wrap gap-3">
+                                            <button type="submit" class="btn btn-info waves-effect waves-light">Submit</button>
+                                            <button type="submit" name="pdf" value="pdf" class="btn btn-danger waves-effect waves-light">Export PDF</button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </form>    
                         <div style="margin-top: 20px;">
-                            {{-- <form action="{{ route('backend.report-absen-export') }}" method="POST">
-                                @csrf
-                                <div>
-                                    <p class="tx-black" style="display: inline;">Download :</p>
-                                </div>
-                                <div>
-                                <button class="btn btn-sm btn-danger">PDF</button>
-                                </div>
-                            </form>   --}}
+                            {{-- <div>
+                                <p class="tx-black" style="display: inline;">Download :</p>
+                            </div>
+                                <a href="{{ route('backend.report-absen-export') }}" class="btn btn-sm btn-danger">
+                                    PDF
+                                </a> --}}
                             {{-- <div id="buttons" style="padding: 10px; margin-bottom: 10px; width: 100%; border-radius:5px; display:inline;"></div> --}}
                         </div>
-                        <table class="table table-hover" id="reportTable">
+                        <table class="table datatable table-hover" id="reportTable">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -103,8 +111,15 @@
 
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="{{ asset('backend/libs/datatables/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('backend/libs/datatables/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('backend/libs/datatables/jszip.min.js') }}"></script>
+<script src="{{ asset('backend/libs/datatables/pdfmake.min.js') }}"></script>
+<script src="{{ asset('backend/libs/datatables/vfs_fonts.js') }}"></script>
+<script src="{{ asset('backend/libs/datatables/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('backend/libs/datatables/buttons.print.min.js') }}"></script> 
 
-<script>
+{{-- <script>
     // $(document).ready(function() {
     //     var table = $('#reportTable').DataTable( {
     //         lengthChange: false,
@@ -121,5 +136,41 @@
     }).buttons().container().appendTo("#reportTable_wrapper .col-md-6:eq(0)"),
      $(".dataTables_length select").addClass("form-select form-select-sm")
 });
+</script> --}}
+
+<script>
+    var table = $('.datatable').DataTable();
+
+    var buttons = new $.fn.dataTable.Buttons(table, {
+        buttons: [
+        //     {
+        //     extend: 'pdfHtml5',
+        //     title   : 'Alarm Backup',
+        //     orientation: 'potrait',
+        //     pageSize: 'A4',
+        //     className: 'btn btn-danger btn-sm btn-corner',
+        //     text: '<i class="fas fa-file-pdf"></i>&nbsp; PDF',
+        //     titleAttr: 'Download as PDF',
+        //     customize: function (doc) {
+        //         doc.content.splice(0, 0, {
+        //             margin: [0, 0, 0, 12],
+        //             alignment: 'center',
+        //             image: getBase64Image(myGlyph),
+        //             width: 140,
+        //             height: 40,
+        //         });
+        //     }
+        // }, 
+        {
+            extend: 'print',
+            text: '<i class="fas fa-print"></i>&nbsp; Print',
+            title: 'List WO',
+            className: 'btn btn-danger btn-sm btn-corner',
+            titleAttr: 'Download as Excel',
+            exportOptions: {
+            columns: ':visible'
+            }
+        }],
+    }).container().appendTo($('#buttons'));
 </script>
 @endsection

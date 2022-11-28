@@ -64,7 +64,7 @@ use Illuminate\Support\Facades\Route;
 
             // Report
             Route::get('report', [ReportController::class, 'index'])->name('report.index');
-            Route::post('/report-absen-export', [ReportController::class, 'ReportExport'])->name('report-absen-export');
+            Route::get('/report-absen-export', [ReportController::class, 'ReportExport'])->name('report-absen-export');
 
             // Filter
             Route::resource('filter', FilterController::class);

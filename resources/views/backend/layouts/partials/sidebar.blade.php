@@ -29,7 +29,7 @@
                 </li>
                 @endif
 
-                @if(auth()->user()->can('dashboard'))
+                @if(auth()->user()->can('master-data'))
                 <li>
                     <a href="{{ route('backend.master-data.index') }}" class="waves-effect">
                         <i class="bx bx-receipt"></i>

@@ -90,7 +90,7 @@
                                             @endcan
 
                                             @can('departement-delete')
-                                            <a href="#" class="btn btn-danger f-12" onclick="modalDelete('Absen', '{{ $absens->name }}', '/admin/absen/' + {{ $absens->id }}, '/admin/absen/')">
+                                            <a href="#" class="btn btn-danger f-12" onclick="modalDelete('Absen', '{{ $absens->name }}', '/absen/admin/absen/' + {{ $absens->id }}, '/absen/admin/absen/')">
                                                 <i class="far fa-trash-alt"></i>
                                                 Delete
                                             </a>
@@ -112,5 +112,6 @@
 @endsection
 
 @section('script')
+
 
 @endsection

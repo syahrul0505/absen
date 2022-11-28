@@ -27,6 +27,7 @@ class PermissionTableSeeder extends Seeder
             'user-delete',
             'history-log-list',
             'history-log-delete',
+            'master-data',
         ];
 
         foreach ($permissions as $permission) {

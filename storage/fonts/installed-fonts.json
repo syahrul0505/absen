@@ -1,0 +1,27 @@
+{
+    "ionicons": {
+        "normal": "\/var\/www\/html\/sst.wiqi.co\/public_html\/absen\/storage\/fonts\/\/ionicons_normal_1b2b773bb3197b577cecee8d68579952"
+    },
+    "source sans pro": {
+        "italic": "\/var\/www\/html\/sst.wiqi.co\/public_html\/absen\/storage\/fonts\/\/source_sans_pro_italic_120f826d42ce02c5331340b891f821ef",
+        "300": "\/var\/www\/html\/sst.wiqi.co\/public_html\/absen\/storage\/fonts\/\/source_sans_pro_300_891cae020a7dc5d2aa8254f4fb770830",
+        "normal": "\/var\/www\/html\/sst.wiqi.co\/public_html\/absen\/storage\/fonts\/\/source_sans_pro_normal_b93742b4fdc85f7c597b89467e1a88ee",
+        "bold": "\/var\/www\/html\/sst.wiqi.co\/public_html\/absen\/storage\/fonts\/\/source_sans_pro_bold_0e2949c92ad09533088db418daa0361a"
+    },
+    "material design icons": {
+        "normal": "material_design_icons_normal_ceaa4f9e9d6ecfbb79b5d5df293382b8"
+    },
+    "boxicons": {
+        "normal": "boxicons_normal_0d8fe9bb4a8a9fc5b01e90df3ea9317d"
+    },
+    "font awesome 5 brands": {
+        "normal": "font_awesome_5_brands_normal_78e1967c0205fa9122d8eaf969e86c64"
+    },
+    "font awesome 5 free": {
+        "normal": "\/var\/www\/html\/sst.wiqi.co\/public_html\/absen\/storage\/fonts\/\/font_awesome_5_free_normal_3c204bb93a04ebd01cec6f1f9e769343",
+        "900": "font_awesome_5_free_900_5e00ffe661705eecb53dc6fcb38c7e1c"
+    },
+    "dripicons-v2": {
+        "normal": "dripicons_v2_normal_567447acb47e5498092691f26180cc7e"
+    }
+}
